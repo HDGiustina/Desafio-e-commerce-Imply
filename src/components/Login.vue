@@ -19,6 +19,7 @@
                     <label for="senha" class="uk-form-label">Senha</label>
                     <input class="uk-input" type="text" name="senha" id="senha">
                     <button class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-large" onclick="">Entrar</button>
+                    <button class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-medium uk-button-small" onclick="">Esqueci minha senha</button>
                 </div>
          </div>
         </div>
