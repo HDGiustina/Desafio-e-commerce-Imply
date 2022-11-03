@@ -7,14 +7,14 @@
                     <p class="uk-text-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo eaque enim perferendis recusandae architecto tempora nam! Voluptatibus a doloribus deleniti nesciunt alias sint ipsam beatae, possimus minima laboriosam id.</p>
                     
                 </div>
-                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-width-1-2 uk-margin-xlarge-right">
-                    <h3 class="">Compre o seu ingreso</h3>
+                <div class="uk-border-rounded uk-card uk-card-default uk-card-hover uk-card-body uk-width-1-2 uk-margin-xlarge-right">
+                    <h3>Compre o seu ingreso</h3>
                     <label for="data" class="uk-form-label">Selecione a data</label>
-                    <input type="date" name="data" id="data" class="uk-input">
+                    <input type="date" name="data" id="data" class="uk-border-rounded uk-input">
                     <label for="quantidade" class="uk-form-label">Informe quantos ingressos</label>
-                    <input type="number" name="quantidade" id="quantidade" min="0" class="uk-input">
+                    <input type="number" name="quantidade" id="quantidade" min="0" class="uk-border-rounded uk-input">
                     <label for="ingressos" class="uk-form-label">Selecione o produto</label>
-                    <select name="ingressos" id="ingressos" class="uk-select">
+                    <select name="ingressos" id="ingressos" class="uk-border-rounded uk-select">
 
                         <option default disabled>Selecione...</option>
                         <option>*Back</option>
@@ -26,7 +26,7 @@
             
             <div class="uk-position-relative uk-visible-toggle uk-light uk-width-xlarge " tabindex="-1" uk-slideshow>
                 
-                <ul class="uk-slideshow-items">
+                <ul class="uk-slideshow-items uk-border-rounded">
                     <li v-for="(img, index) in imagens" v-bind:key="index">
                         <img :src="img" alt="teste" uk-cover>
                     </li>
