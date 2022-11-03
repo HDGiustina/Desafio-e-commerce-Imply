@@ -399,14 +399,17 @@ Os eventuais litígios deverão ser apresentados no foro da comarca em que se en
             </div>
         </div>
         <Modal />
+        <Login />
     </main>
 </template>
 
 <script>
     import Modal from "../components/Modal.vue"
+    import Login from "../components/Login.vue"
     export default {
         components: {
-            Modal
+            Modal,
+            Login
         }
     }
 </script>
