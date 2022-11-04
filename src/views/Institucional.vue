@@ -1,8 +1,9 @@
 <template>
     <main>
+        <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
         <h1>Sobre nós</h1>
-    </main>
-    <div class="uk-text-justify uk-text-break">
+   
+    <div class="uk-text-justify">
         <p>
                 Lorem ipsum dolor sit amet. Est rerum necessitatibus qui galisum quasi et corrupti beatae non deserunt 
             quibusdam. Ut molestiae adipisci cum delectus modi eos nihil dolores est nostrum voluptate est aliquam 
@@ -13,7 +14,9 @@
             iusto laboriosam ut velit asperiores ad reiciendis illum qui exercitationem voluptas sit quibusdam odio.
             Eos culpa labore id magni ratione aut sint consectetur ex laborum reprehenderit!
         </p>
+        </div>
     </div>
+</main>
 </template>
 
 <script>
