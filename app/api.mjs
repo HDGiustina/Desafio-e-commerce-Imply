@@ -1,13 +1,7 @@
 import express from "express";
+import routes from "./routes.mjs";
+
 const app = express();
-
-app.get("/api/", (req, res) => {
-    // abra no navegador o link http://localhost:3000/api
-    const request = JSON.stringify({
-        error: false,
-        result: "Olá mundo isso é um teste",
-    });
-    res.send(request);
-});
-
+app.use(express.json());
+app.use(routes);
 app.listen(3000);

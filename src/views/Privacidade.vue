@@ -398,15 +398,11 @@ Os eventuais litígios deverão ser apresentados no foro da comarca em que se en
                 </ul>
             </div>
         </div>
-        <Modal />
     </main>
 </template>
 
 <script>
-    import Modal from "../components/Modal.vue"
     export default {
-        components: {
-            Modal
-        }
+        name: "Privacidade"
     }
 </script>
