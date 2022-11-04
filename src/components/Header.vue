@@ -57,6 +57,27 @@
 </template>
 <script>
 export default {
-    name: "Header"
+    name: "Header",
+    methods: {
+        enviarDados(e){
+            let userInfo = {
+                "email": e.target.elements.email.value,
+                "fullname": e.target.elements.fullname.value,
+                "password": e.target.elements.password.value, 
+                "cpf": e.target.elements.cpf.value,
+                "gender": e.target.elements.gender.value,
+                "phone": e.target.elements.phone.value
+            }
+            console.log(userInfo)
+            fetch('/cadastro', { method: 'POST', body: userInfo })
+            .then(
+                response => response.json()
+            ).then(
+                data => {
+                    console.log(data);
+                }
+            )
+        }
+    }
 }
 </script>
