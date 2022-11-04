@@ -398,19 +398,11 @@ Os eventuais litígios deverão ser apresentados no foro da comarca em que se en
                 </ul>
             </div>
         </div>
-        <Cadastro />
-        <Login />
     </main>
 </template>
 
 <script>
-    import Cadastro from "../components/Cadastro.vue"
-    import Login from "../components/Login.vue"
     export default {
-        name: "Privacidade",
-        components: {
-            Cadastro,
-            Login
-        }
+        name: "Privacidade"
     }
 </script>

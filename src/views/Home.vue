@@ -8,7 +8,7 @@
                     
                 </div>
                 <div class="uk-border-rounded uk-card uk-card-default uk-card-hover uk-card-body uk-width-1-2 uk-margin-xlarge-right">
-                    <form @submit.prevent="enviarDados" >
+                    <form @submit.prevent="enviarDados"  >
                         <h3 class="uk-text-secondary">Compre o Seu Ingresso!</h3>
                         <label for="data" class="uk-form-label">Selecione a data</label>
                         <input type="date" name="data" id="data" class="uk-border-rounded uk-input">
@@ -73,6 +73,15 @@ import { createDOMCompilerError } from "@vue/compiler-dom";
             }
         },
         methods: {
+            enviarDados(e){
+                let userInfo = {
+                    "data": e.target.elements.data.value,
+                    "qtd": e.target.elements.quantidade.value,
+                    "ingresso": e.target.elements.ingressos.value,
+                    "tipo": e.target.elements.tipo.value
+                }
+                console.log(userInfo)
+            }
         }
     }
 </script>
