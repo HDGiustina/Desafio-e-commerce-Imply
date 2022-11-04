@@ -16,6 +16,7 @@
                                 <h2 class="uk-border-rounded uk-modal-title uk-background-primary uk-padding-small">Cadastro</h2>
                                 <div class="uk-padding-medium">
                                     <button class="uk-border-rounded uk-margin-small-bottom uk-text-default uk-text-secondary uk-button-default" uk-toggle="target: #my-log">Já tenho cadastro</button>
+                                        <!-- Início modal Login -->
                                         <div id="my-log" uk-modal>
                                             <div class="uk-border-rounded uk-modal-dialog uk-modal-body">
                                                 <div>
@@ -32,6 +33,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- Fim modal Login -->
+
+                                        <!-- Início modal Cadastro -->
                                     <form  @submit.prevent="enviarDados">
                                         <label class="uk-form-label" for="fullname">Nome Completo</label>
                                         <input class="uk-input uk-border-rounded" type="text" name="fullname" id="fullname">
@@ -54,6 +58,7 @@
                                         <input type="text" name="repeat_password" id="repeat_password" class="uk-input uk-border-rounded">
                                         <button type="submit" class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-large uk-border-rounded">Cadastrar</button>
                                     </form>
+                                    <!-- Fim modal Cadastro -->
                                 </div>
                             </div>
                         </div>
