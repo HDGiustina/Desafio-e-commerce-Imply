@@ -1,7 +1,8 @@
 <template>
       <div>
-         <div class="uk-container uk-background-primary uk-width-auto">
-               <img class="uk-align-right uk-margin-xlarge-right" src="/img/parque_das_palmeiras.png " alt="Logo do Parque">
+         <div class="uk-container uk-background-muted uk-width-auto">
+            <hr>
+               <img class="uk-align-right uk-margin-xlarge-right" src="/img/parque_das_palmeiras-header.png " alt="Logo do Parque">
             <ul class="uk-list uk-link-text uk-width-3-4 uk-margin-xlarge-left">
                <li><RouterLink to="/" class="uk-text-secondary uk-text-decoration-none uk-button-text">Home</RouterLink></li>
                <li><RouterLink to="/institucional" class="uk-text-secondary uk-text-decoration-none uk-button-text">Institucional</RouterLink></li>

@@ -1,5 +1,5 @@
 <template class="uk-container">
-    <div>
+    <div class="uk-background-muted">
         <div class= "uk-text-center">
             <nav class="uk-navbar-container" uk-navbar>
                     <div class="uk-width-1-4 uk-align-left uk-margin-xlarge-left"><img src="/img/parque_das_palmeiras-header.png" alt="Logo do site"></div>
