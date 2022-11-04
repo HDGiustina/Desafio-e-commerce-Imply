@@ -1,29 +1,24 @@
-<template>
-    <main>
+<template >
+    <main class="uk-text-center">
         <h1>Pedidos</h1>
         <h3 >Aqui está seu historico de pedidos:</h3>
     </main>
     <div>
-        <div class="uk-list uk-margin-xlarge-left uk-margin-xlarge-right">
+        <div class="uk-list uk-margin-xlarge-left uk-margin-xlarge-right uk-text-center">
             <div>
                 <h4><strong>Tour Historico</strong></h4>
                 <p>id=1 <br> type=1 <br> pryce=18 <br> <strong>Status: PENDENTE</strong></p>
             </div>
             <div>
                 <h4><strong>Tour Educacional</strong></h4>
-                <p>id=4 <br> type=1 <br> pryce=12 <br> <strong>Status: Concluido</strong></p>
+                <p> Status: Finalizado</p>
+                <p>Tipo: Inteiro</p>
+                <p>Quantidade: 1</p>
+                <p>Preço: R$ 12,00</p>
             </div>
             <div>
                 <h4><strong>Tour Amanhecer</strong></h4>
                 <p>id=7 <br> type=1 <br> pryce=16 <br> <strong>Status: Concluido</strong></p>
-            </div>
-            <div>
-                <h4><strong>Tour Amanhecer</strong></h4>
-                <p>id=8 <br> type=2 <br> pryce=8 <br> <strong>Status: Concluido</strong></p>
-            </div>
-            <div>
-                <h4><strong>Tour Historico</strong></h4>
-                <p>id=10 <br> type=3 <br> pryce=9 <br> <strong>Status: Concluido</strong></p>
             </div>
         </div>
         <!-- <ul class="uk-slideshow-items">
