@@ -1,6 +1,6 @@
 <template>
       <div>
-         <div class="uk-container uk-background-muted uk-width-auto">
+         <div class="uk-container uk-background-muted uk-width-auto uk-padding-remove">
             <hr>
                <img class="uk-align-right uk-margin-xlarge-right" src="/img/parque_das_palmeiras-header.png " alt="Logo do Parque">
             <ul class="uk-list uk-link-text uk-width-3-4 uk-margin-xlarge-left">

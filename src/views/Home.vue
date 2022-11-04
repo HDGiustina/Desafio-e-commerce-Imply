@@ -1,6 +1,6 @@
 <template>
     <main class="uk-height-viewport">
-        <section class="uk-section uk-background-cover uk-flex uk-flex-center  " data-src="/img/fundo-home.jpg" uk-img>
+        <section class="uk-section uk-background-cover uk-flex uk-flex-center" data-src="/img/fundo-home.jpg" uk-img>
             
                 <div class="uk-width-1-2 uk-margin-xlarge-left uk-margin-xlarge-right uk-text-center">
                     <h1 class="uk-text-secondary ">Os Melhores Tours!</h1>
