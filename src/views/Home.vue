@@ -73,12 +73,6 @@ import { createDOMCompilerError } from "@vue/compiler-dom";
             }
         },
         methods: {
-            enviarDados(e){
-                let userInfo = {
-                   "data" = e.target.elements.email.value
-                }
-                console.log(userInfo)
-            }
         }
     }
 </script>
