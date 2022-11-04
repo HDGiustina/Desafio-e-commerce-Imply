@@ -15,7 +15,7 @@
                                 </div>
                                 <h2 class="uk-border-rounded uk-modal-title uk-background-primary uk-padding-small">Cadastro</h2>
                                 <div class="uk-padding-medium">
-                                    <button class="uk-border-rounded uk-margin-small-bottom uk-text-default uk-text-secondary uk-button-default" uk-toggle="target: #my-log">Já tenho cadastro</button>
+                                    <button class="uk-button uk-margin uk-align-center uk-background-default uk-text-secondary uk-box-shadow-hover-large uk-border-rounded" uk-toggle="target: #my-log">Já tenho cadastro</button>
                                         <!-- Início modal Login -->
                                         <div id="my-log" uk-modal>
                                             <div class="uk-border-rounded uk-modal-dialog uk-modal-body">
@@ -29,7 +29,22 @@
                                                     <label for="senha" class="uk-form-label">Senha</label>
                                                     <input class="uk-input uk-border-rounded" type="text" name="senha" id="senha">
                                                     <button class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-large uk-border-rounded" onclick="">Entrar</button>
-                                                    <button class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-medium uk-button-small uk-border-rounded" onclick="">Esqueci minha senha</button>
+                                                    <button class="uk-button uk-margin uk-align-center uk-background-default uk-text-secondary uk-box-shadow-hover-large uk-border-rounded" uk-toggle="target: #my-pass">Esqueci minha senha</button>
+                                                        <!-- Início esqueci minha senha -->
+                                                        <div id="my-pass" uk-modal>
+                                                            <div class="uk-border-rounded uk-modal-dialog uk-modal-body">
+                                                                <div>
+                                                                    <a href="#"><span class="uk-align-right uk-modal-close" uk-icon="close"></span></a>
+                                                                </div>
+                                                                <h2 class=" uk-border-rounded uk-modal-title uk-padding-small uk-background-primary">Esqueci minha senha</h2>
+                                                                <div class="uk-padding-medium">
+                                                                    <label class="uk-form-label" for="nome">Usuário (email)</label>
+                                                                    <input class="uk-input uk-border-rounded" type="text" name="usuario" id="usuario" placeholder="example@example.com">
+                                                                </div>
+                                                                <button type="submit" class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-large uk-border-rounded">Enviar</button>
+                                                             </div>       
+                                                        </div>
+                                                    <!-- Fim esqueci minha senha -->
                                                 </div>
                                             </div>
                                         </div>
