@@ -402,5 +402,7 @@ Os eventuais litígios deverão ser apresentados no foro da comarca em que se en
 </template>
 
 <script>
-
+    export default {
+        name: "Cookies"
+    }
 </script>

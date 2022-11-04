@@ -2,7 +2,7 @@
     <div>
         <div class= "uk-text-center uk-background-secondary">
             <nav class="uk-navbar-container" uk-navbar>
-                    <div class="uk-width-1-4 uk-align-left uk-margin-xlarge-left"><img src="/img/parque_das_palmeiras.png" alt="Logo do site"></div>
+                    <div class="uk-width-1-4 uk-align-left uk-margin-xlarge-left"><img src="/img/parque_das_palmeiras-header.png" alt="Logo do site"></div>
                 <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
                     <li class="uk-parent"><a class="uk-text-secondary uk-text-decoration-none uk-button-text" href="/"><span uk-icon="home"></span> Home</a></li>
@@ -16,7 +16,7 @@
                             <li><span uk-icon="sign-out"></span><RouterLink to="/" class="uk-text-secondary uk-text-decoration-none uk-button-text">Sair</RouterLink></li>
                         </div>
                     </li>
-                    <li class="uk-parent"><a class="uk-text-secondary uk-text-decoration-none uk-button-text uk-margin-xlarge-right" href="/"> Carrinho</a></li>
+                    <li class="uk-parent"><a class="uk-text-secondary uk-text-decoration-none uk-button-text uk-margin-xlarge-right" href="/checkout"><span uk-icon="icon: cart"></span> Carrinho</a></li>
                 </ul>
                 </div>
             </nav>

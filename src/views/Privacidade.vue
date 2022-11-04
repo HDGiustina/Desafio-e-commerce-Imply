@@ -407,6 +407,7 @@ Os eventuais litígios deverão ser apresentados no foro da comarca em que se en
     import Cadastro from "../components/Cadastro.vue"
     import Login from "../components/Login.vue"
     export default {
+        name: "Privacidade",
         components: {
             Cadastro,
             Login
