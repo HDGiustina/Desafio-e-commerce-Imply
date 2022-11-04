@@ -9,10 +9,29 @@
                     <li class="uk-parent uk-button-text">
                         <button class="uk-text-uppercase uk-text-default uk-margin-large-top uk-text-secondary uk-button-default" uk-toggle="target: #my-id">Cadastro</button>
                             <div id="my-id" uk-modal>
-                            <div class="uk-modal-dialog uk-modal-body">
-                                <button class="uk-modal-close uk-align-right"><span uk-icon="close"></span></button>
-                                <h2 class="uk-modal-title uk-background-primary uk-padding-small">Cadastro</h2>
-                                <div class="uk-padding-medium ">
+                            <div class="uk-border-rounded uk-modal-dialog uk-modal-body">
+                                <div>
+                                    <a href="#"><span class="uk-align-right uk-modal-close" uk-icon="close"></span></a>
+                                </div>
+                                <h2 class="uk-border-rounded uk-modal-title uk-background-primary uk-padding-small">Cadastro</h2>
+                                <div class="uk-padding-medium">
+                                    <button class="uk-border-rounded uk-margin-small-bottom uk-text-default uk-text-secondary uk-button-default" uk-toggle="target: #my-log">Já tenho cadastro</button>
+                                        <div id="my-log" uk-modal>
+                                            <div class="uk-border-rounded uk-modal-dialog uk-modal-body">
+                                                <div>
+                                                    <a href="#"><span class="uk-align-right uk-modal-close" uk-icon="close"></span></a>
+                                                </div>
+                                                <h2 class="uk-border-rounded uk-modal-title uk-padding-small uk-background-primary">Login</h2>
+                                                <div class="uk-padding-medium">
+                                                    <label class="uk-form-label" for="nome">Usuário (email)</label>
+                                                    <input class="uk-input uk-border-rounded" type="text" name="usuario" id="usuario" placeholder="example@example.com">
+                                                    <label for="senha" class="uk-form-label">Senha</label>
+                                                    <input class="uk-input uk-border-rounded" type="text" name="senha" id="senha">
+                                                    <button class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-large uk-border-rounded" onclick="">Entrar</button>
+                                                    <button class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-medium uk-button-small uk-border-rounded" onclick="">Esqueci minha senha</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <form  @submit.prevent="enviarDados">
                                         <label class="uk-form-label" for="fullname">Nome Completo</label>
                                         <input class="uk-input uk-border-rounded" type="text" name="fullname" id="fullname">
