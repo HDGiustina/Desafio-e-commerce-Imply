@@ -20,6 +20,7 @@ routes.post("/login", async (req, res) => {
 // Rota de cadastro de usuários
 routes.post("/cadastro", async (req, res) => {
     let user = req.body;
+    console.log(user);
     await bd.insertUser(user);
     return res.status(201).json({error: 0});
 });

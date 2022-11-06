@@ -1,7 +1,6 @@
 {
     "name": "e-commerce",
     "version": "0.0.0",
-    "proxy": "http://localhost:3000",
     "scripts": {
         "dev": "vite",
         "back": "nodemon app/api.mjs",

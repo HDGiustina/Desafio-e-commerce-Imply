@@ -27,15 +27,26 @@
         name: 'Perfil',
         methods: {
             enviarDados(e){
-                let userInfo = {
+                const userInfo = {
                     "email": e.target.elements.email.value,
                     "fullname": e.target.elements.fullname.value, 
                     "cpf": e.target.elements.cpf.value,
                     "gender": e.target.elements.gender.value,
                     "phone": e.target.elements.phone.value
-                }
-                console.log(userInfo)
-                
+                };
+                const url = 'http://localhost:3000/cadastro';
+                fetch(url , {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)}
+                )
+                .then(function(response) {
+                    response.json().then(function(data){
+                        console.log(data)
+                    });
+                });
             }
         }
     }
