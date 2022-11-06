@@ -20,39 +20,59 @@ async function connect() {
     return pool.connect();
 }
 
-async function selectProducts() {
-    const client = await connect();
-    const res = await client.query('SELECT * FROM products');
-    return res.rows;
-} module.exports = { selectProducts }
-
-async function selectUserByEmail(email) {
-    const client = await connect();
-    const sql = 'SELECT password FROM users WHERE email = $1;'
-    const res = await client.query(sql, [email]);
-    return res.rows;
-} module.exports = { selectUserByEmail }
-
-async function selectUserByToken(token) {
-    const client = await connect();
-    const sql = 'SELECT user_id FROM users WHERE token = $1;'
-    const res = await client.query(sql, [token]);
-    return res.rows;
-} module.exports = { selectUserByEmail }
-
-/*
-async function selectCart() {
-    const client = await connect();
-    const sql = ''
-    const res = await client.query();
-    return res.rows;
-} module.exports = {  }
-*/
-
+// USERS
 
 async function insertUser(user) {
     const client = await connect();
     const sql = 'INSERT INTO users (email, fullname, password, cpf, gender, phone) VALUES ($1,$2,$3,$4,$5,$6);';
     const values = [user.email, user.fullname, user.password, user.cpf, user.gender, user.phone];
     return await client.query(sql, values);
-} module.exports = { insertUser }
+} 
+
+async function selectUserByEmail(email) {
+    const client = await connect();
+    const sql = 'SELECT password FROM users WHERE email = $1;'
+    const res = await client.query(sql, [email]);
+    return res.rows;
+}
+
+async function selectUserByToken(token) {
+    const client = await connect();
+    const sql = 'SELECT user_id FROM users WHERE token = $1;'
+    const res = await client.query(sql, [token]);
+    return res.rows;
+}
+
+// PRODUCTS
+
+async function selectProducts() {
+    const client = await connect();
+    const res = await client.query('SELECT * FROM products');
+    return res.rows;
+}
+
+// CART
+
+async function selectCart(userID) {
+    const client = await connect();
+    const sql = 'SELECT c.product_id, description, quantity FROM cart c JOIN products p ON c.product_id = p.product_id WHERE c.user_id = $1;'
+    const ret = await client.query(sql, [userID]);
+    return ret.rows;
+}
+
+async function insertItemCart(userID, item) {
+    const client = await connect();
+    const sql = 'INSERT INTO cart (user_id, product_id, quantity) VALUES ($1,$2,$3);';
+    const values = [userID, item.product_id, item.quantity];
+    return await client.query(sql, values);
+}
+
+
+module.exports = {
+    insertUser,
+    selectUserByEmail,
+    selectUserByToken,
+    selectProducts,
+    selectCart,
+    insertItemCart,
+};
