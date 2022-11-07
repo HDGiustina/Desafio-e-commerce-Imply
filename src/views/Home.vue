@@ -55,6 +55,8 @@
 
 <script >
 import { createDOMCompilerError } from "@vue/compiler-dom";
+import db from '../db/db.js'
+
     export default {
         data() {
             return{ 
@@ -73,7 +75,7 @@ import { createDOMCompilerError } from "@vue/compiler-dom";
             }
         },
         methods: {
-            enviarDados(e){
+            async enviarDados(e){
                 let userInfo = {
                     "data": e.target.elements.data.value,
                     "qtd": e.target.elements.quantidade.value,
@@ -81,6 +83,9 @@ import { createDOMCompilerError } from "@vue/compiler-dom";
                     "tipo": e.target.elements.tipo.value
                 }
                 console.log(userInfo)
+                // Tá funcionando o indexedDB
+                await db.saveItem(userInfo, 'carrinho')
+                console.log(db.getItem('carrinho'))
             }
         }
     }
