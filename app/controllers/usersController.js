@@ -9,7 +9,18 @@ const authenticate = async (req, res) => {
     if(user.password != ret[0].password) {
         return res.status(401).json({error: 2, message: 'Senha inválida.'});
     }
-    return res.status(201).json({error: 0, token: 'akhjsfblashf1673572635276'});
+    console.log(ret)
+    return res.status(201).json({error: 0, token: 'akhjsfblashf1673572635276', user: ret[0].user_id});
+};
+
+const getUserProfile = async (req, res) => {
+    const userId = req.params.id;
+    
+    const ret = await usersModel.selectUserProfile(userId);
+    if(ret.length == 0)
+        return res.status(401).json({error: 1, message: 'Usuário não cadastrado.'});
+
+    return res.status(201).json({error: 0, user: ret});
 };
 
 const insert = async (req, res) => {
@@ -18,7 +29,16 @@ const insert = async (req, res) => {
     return res.status(201).json({error: 0});
 };
 
+const updateUser = async (req, res) => {
+    const user = req.body;
+    const userId = req.params.id;
+    const ret = await usersModel.updateUser(userId, user);
+    return res.status(201).json({error: 0, message: 'Usuário atualizado.'});
+};
+
 module.exports = {
     authenticate,
+    getUserProfile,
     insert,
+    updateUser,
 };
