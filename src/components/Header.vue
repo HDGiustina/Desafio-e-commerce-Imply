@@ -144,15 +144,25 @@ export default {
                 "gender": e.target.elements.gender.value,
                 "phone": e.target.elements.phone.value
             }
-            console.log(userInfo)
-            fetch('/cadastro', { method: 'POST', body: userInfo })
+            fetch('http://localhost:3000/cadastro', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)})
             .then(
                 response => response.json()
             ).then(
                 data => {
                     console.log(data);
                 }
-            )
+            );
         }
     }
 }

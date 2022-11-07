@@ -24,7 +24,9 @@ const getUserProfile = async (req, res) => {
 };
 
 const insert = async (req, res) => {
+    console.log(req.body);
     const user = req.body;
+
     const ret = await usersModel.insertUser(user);
     return res.status(201).json({error: 0});
 };

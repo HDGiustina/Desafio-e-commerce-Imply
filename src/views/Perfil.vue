@@ -25,39 +25,6 @@
 <script>
    export default {
         name: 'Perfil',
-        methods: {
-            enviarDados(e){
-                const userInfo = {
-                    "email": e.target.elements.email.value,
-                    "fullname": e.target.elements.fullname.value, 
-                    "cpf": e.target.elements.cpf.value,
-                    "gender": e.target.elements.gender.value,
-                    "phone": e.target.elements.phone.value
-                };
-                const url = 'http://localhost:3000/cadastro';
-                fetch(url , {
-                    method: 'POST',
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                    'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(userInfo)}
-                )
-                .then(function(response) {
-                    response.json().then(function(data){
-                        console.log(data)
-                    });
-                });
-            }
-        }
     }
 </script>
 
