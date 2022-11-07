@@ -27,13 +27,16 @@
         data(){
             return{
                 carrinho:[
-                {id: 1, tour: 'Tour Historico', type: 1, pryce: 18},
-                {id: 2, tour: 'Tour Historico', type: 2, pryce: 9},
-                {id: 3, tour: 'Tour Historico', type: 3, pryce: 9},
-                {id: 4, tour: 'Tour Educacional', type: 1, pryce: 12},
-                {id: 5, tour: 'Tour Educacional', type: 2, pryce: 6}
+                    {id: 1, tour: 'Tour Historico', type: 1, pryce: 18},
+                    {id: 2, tour: 'Tour Historico', type: 2, pryce: 9},
+                    {id: 3, tour: 'Tour Historico', type: 3, pryce: 9},
+                    {id: 4, tour: 'Tour Educacional', type: 1, pryce: 12},
+                    {id: 5, tour: 'Tour Educacional', type: 2, pryce: 6}
                 ]
             }
+        },
+        methods:{
+            // Fazer uma função que pega os dados do indexedDB
         }
     }
 </script>

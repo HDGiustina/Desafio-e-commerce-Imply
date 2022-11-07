@@ -17,13 +17,13 @@
                         <label for="ingressos" class="uk-form-label">Selecione o Tour</label>
                         <select name="ingressos" id="ingressos" class="uk-border-rounded uk-select" >
     
-                            <option selected disabled>Selecione...</option>
+                            <option selected disabled value="0">Selecione...</option>
                             <option v-for="(tour, index) in Tours" :key="index">{{ tour }}</option>
     
                         </select>
                         <label for="tipo" class="uk-form-label">Selecione o tipo de ingresso</label>
                         <select name="tipo" id="tipo" class="uk-border-rounded uk-select">
-                            <option selected disabled>Selecione...</option>
+                            <option selected disabled value="0">Selecione...</option>
                             <option v-for="(tipo, index) in ingresso" :key="index">{{ tipo }}</option>
                         </select>
                         <button type="submit" class="uk-button uk-margin uk-align-center uk-background-secondary uk-text-muted uk-box-shadow-hover-large uk-border-rounded">Adicionar</button>
@@ -71,21 +71,55 @@ import db from '../db/db.js'
                     'Tour Educacional',
                     'Tour Amanhecer'
                 ],
-                ingresso: ['Inteiro','Meia-entreda','PCDs']
+                ingresso: ['Inteiro','Meia-entreda','PCDs'],
+                dia: (new Date()).getDate(),
+                mes: (new Date()).getMonth() + 1,
+                ano: (new Date()).getFullYear(),
+                hoje: ""
             }
         },
+        mounted() {
+            this.getToday()
+        },
         methods: {
+            async getToday(){
+                if(this.dia < 10){
+                    this.dia = "0" + this.dia 
+                }
+                let hoje = this.ano + "-"+ this.mes + "-" + this.dia
+                this.hoje = new Date(hoje)
+                console.log(this.hoje)
+            },
             async enviarDados(e){
                 let userInfo = {
-                    "data": e.target.elements.data.value,
+                    "data": new Date(e.target.elements.data.value),
                     "qtd": e.target.elements.quantidade.value,
                     "ingresso": e.target.elements.ingressos.value,
                     "tipo": e.target.elements.tipo.value
                 }
-                console.log(userInfo)
-                // Tá funcionando o indexedDB
-                await db.saveItem(userInfo, 'carrinho')
-                console.log(db.getItem('carrinho'))
+                if(userInfo.data.getTime() >= this.hoje.getTime()){
+                    console.log("1")
+                    if(userInfo.qtd > 0){
+                        console.log("2")
+                        if(userInfo.ingresso != 0){
+                            console.log("3")
+                            if(userInfo.tipo != 0){
+                                console.log("4")
+                                await db.saveItem(userInfo, 'carrinho')
+                                console.log(db.getItem('carrinho'))
+                            }else{
+                                window.alert("Por Favor, selecione um tipo de ingresso!")
+                            }
+                        }else{
+                            window.alert("Por Favor, selecione um Tour!")
+                        }
+                    }else{
+                        window.alert("Quantidade inválida!")
+                    }
+                }else{
+                    window.alert("Data inválida!")
+                }
+                //Fazer um push para mandar o usuário pra página carrinho
             }
         }
     }
