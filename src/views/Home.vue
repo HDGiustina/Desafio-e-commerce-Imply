@@ -88,7 +88,6 @@ import db from '../db/db.js'
                 }
                 let hoje = this.ano + "-"+ this.mes + "-" + this.dia
                 this.hoje = new Date(hoje)
-                console.log(this.hoje)
             },
             async enviarDados(e){
                 let userInfo = {
@@ -97,6 +96,7 @@ import db from '../db/db.js'
                     "ingresso": e.target.elements.ingressos.value,
                     "tipo": e.target.elements.tipo.value
                 }
+                userInfo.data.setDate(userInfo.data.getDate() + 1)
                 if(userInfo.data.getTime() >= this.hoje.getTime()){
                     console.log("1")
                     if(userInfo.qtd > 0){
@@ -105,7 +105,10 @@ import db from '../db/db.js'
                             console.log("3")
                             if(userInfo.tipo != 0){
                                 console.log("4")
+                                userInfo.data = userInfo.data.toLocaleDateString()
+                                console.log(userInfo.data)
                                 await db.saveItem(userInfo, 'carrinho')
+                                this.$router.push('/checkout')
                                 console.log(db.getItem('carrinho'))
                             }else{
                                 window.alert("Por Favor, selecione um tipo de ingresso!")
@@ -119,7 +122,7 @@ import db from '../db/db.js'
                 }else{
                     window.alert("Data inválida!")
                 }
-                //Fazer um push para mandar o usuário pra página carrinho
+                 
             }
         }
     }
