@@ -79,7 +79,8 @@ import db from '../db/db.js'
             }
         },
         mounted() {
-            this.getToday()
+            this.getToday(),
+            this.verificarLogin()
         },
         methods: {
             async getToday(){
@@ -98,18 +99,12 @@ import db from '../db/db.js'
                 }
                 userInfo.data.setDate(userInfo.data.getDate() + 1)
                 if(userInfo.data.getTime() >= this.hoje.getTime()){
-                    console.log("1")
                     if(userInfo.qtd > 0){
-                        console.log("2")
                         if(userInfo.ingresso != 0){
-                            console.log("3")
                             if(userInfo.tipo != 0){
-                                console.log("4")
                                 userInfo.data = userInfo.data.toLocaleDateString()
-                                console.log(userInfo.data)
                                 await db.saveItem(userInfo, 'carrinho')
                                 this.$router.push('/checkout')
-                                console.log(db.getItem('carrinho'))
                             }else{
                                 window.alert("Por Favor, selecione um tipo de ingresso!")
                             }
@@ -122,7 +117,14 @@ import db from '../db/db.js'
                 }else{
                     window.alert("Data inválida!")
                 }
-                 
+            },
+            async verificarLogin(){
+                console.log(sessionStorage.getItem('token'))
+                if(sessionStorage.getItem('token')){
+                    //mexe na visibilidade do botao do cadastro
+                }else{
+                    //mexe na visibilidade do botao do user
+                }
             }
         }
     }

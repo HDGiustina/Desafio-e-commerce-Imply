@@ -26,7 +26,6 @@
                 {id: 3, tour: 'Tour Historico', type: 3, pryce: 9},
                 {id: 4, tour: 'Tour Educacional', type: 1, pryce: 12},
                 {id: 5, tour: 'Tour Educacional', type: 2, pryce: 6}
-            
             ]
         }
     }

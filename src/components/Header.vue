@@ -28,10 +28,10 @@
                                         <div id="my-log" uk-modal>
                                             <div class="uk-border-rounded uk-modal-dialog uk-modal-body">
                                                 <div>
-                                                    <a href="#"><span class="uk-align-right uk-modal-close" uk-icon="close"></span></a>
+                                                    <a href="#" id="closeModal"><span class="uk-align-right uk-modal-close" uk-icon="close"></span></a>
                                                 </div>
                                                 <h2 class="uk-border-rounded uk-modal-title uk-padding-small uk-background-primary">Login</h2>
-                                                <div class="uk-padding-medium">
+                                                <form class="uk-padding-medium" @submit.prevent="setLogin">
                                                     <label class="uk-form-label" for="nome">Usuário (email)</label>
                                                     <input class="uk-input uk-border-rounded" type="text" name="usuario" id="usuario" placeholder="example@example.com">
                                                     <label for="senha" class="uk-form-label">Senha</label>
@@ -46,14 +46,14 @@
                                                                 </div>
                                                                 <h2 class=" uk-border-rounded uk-modal-title uk-padding-small uk-background-primary">Esqueci minha senha</h2>
                                                                 <div class="uk-padding-medium">
-                                                                    <label class="uk-form-label" for="nome">Usuário (email)</label>
-                                                                    <input class="uk-input uk-border-rounded" type="text" name="usuario" id="usuario" placeholder="example@example.com">
+                                                                    <label class="uk-form-label" for="user">Usuário (email)</label>
+                                                                    <input class="uk-input uk-border-rounded" type="text" name="user" id="user" placeholder="example@example.com">
                                                                 </div>
                                                                 <button type="submit" class="uk-button uk-margin uk-align-center uk-background-primary uk-text-secondary uk-box-shadow-hover-large uk-border-rounded">Enviar</button>
                                                              </div>       
                                                         </div>
                                                     <!-- Fim esqueci minha senha -->
-                                                </div>
+                                                    </form>
                                             </div>
                                         </div>
                                         <!-- Fim modal Login -->
@@ -116,8 +116,8 @@
                                 <svg class="uk-text-secondary" style="width:24px;height:24px" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V9H5V5H19V19H5V15H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10.08,15.58L11.5,17L16.5,12L11.5,7L10.08,8.41L12.67,11H3V13H12.67L10.08,15.58Z" />
                                 </svg>
-                                <RouterLink to="/" class="uk-text-secondary uk-text-decoration-none uk-button-text">
-                             Sair </RouterLink></li>
+                                <a class="uk-text-secondary uk-text-decoration-none uk-button-text" v-on:click="sairLogin()">
+                             Sair </a></li>
                         </div>
                     </li>
                     <li class="uk-parent"><a class="uk-margin-medium-top uk-text-secondary uk-text-decoration-none uk-button-text uk-margin-xlarge-right" href="/checkout">
@@ -144,7 +144,7 @@ export default {
                 "gender": e.target.elements.gender.value,
                 "phone": e.target.elements.phone.value
             }
-            fetch('http://localhost:3000/cadastro', {
+            fetch('http://localhost:3000/api/cadastro', {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json'
@@ -163,6 +163,36 @@ export default {
                     console.log(data);
                 }
             );
+        },
+        setLogin(e){
+            let userInfo = {
+                "email": e.target.elements.usuario.value,
+                "password": e.target.elements.senha.value
+            }
+            fetch('http://localhost:3000/api/login', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.error == 0) {
+                    sessionStorage.setItem('token', data.token);
+                    window.location.reload();
+                }
+            }); 
+        },
+        sairLogin(){
+            sessionStorage.setItem('token', '');
+            window.location.reload();
         }
     }
 }

@@ -11,7 +11,7 @@ const connect = async () => {
         port: process.env.PGPORT,
     });
 
-    //apenas testando a conexão
+    // Testando a conexao
     const client = await pool.connect();
     console.log("PostgreSQL pool created.");
 
@@ -19,7 +19,7 @@ const connect = async () => {
     console.log(res.rows[0]);
     client.release();
 
-    //guardando para usar sempre o mesmo
+    // Salvando a conexao em uma variavel global para reutilizar
     global.connection = pool;
     return pool.connect();
 };
